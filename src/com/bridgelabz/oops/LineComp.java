@@ -1,42 +1,37 @@
 package com.bridgelabz.oops;
 
+import java.util.Scanner;
+
 public class LineComp {
-     void method1(){
-         int x1, y1 ,x2, y2;
-         double lenghtofpoints;
-         x1=1;y1=1;x2=4;y2=4;
-         lenghtofpoints=Math.sqrt((x2-x1)*(y2-y1));
-         System.out.println("length of line:"+"("+x1+","+y1+"),"+"("+x2+","+y2+")==>"+lenghtofpoints);
-         lenghtofpoints=Math.sqrt(Math.pow((x2-x1),2)+Math.pow((y2-y1),2));
-         System.out.println("length of line:"+lenghtofpoints);
-
-     }
-    //2nd method
-     void Compare(){
-         int x1, y1, x2, y2;
-         int x3, y3, x4, y4;
-         double lenghtofpoints1, lenghtofpoints2;
-         x1 = 1;
-         y1 = 1;
-         x2 = 4;
-         y2 = 4;
-         x3 = 2;
-         y3 = 3;
-         x4 = 5;
-         y4 = 5;
-         lenghtofpoints1 = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-         lenghtofpoints2 = Math.sqrt(Math.pow((x4 - x3), 2) + Math.pow((y4 - y3), 2));
-
-         if (lenghtofpoints1 == lenghtofpoints2) {
-             System.out.println("length of both line are equal " + lenghtofpoints1 + "=" + lenghtofpoints2);
-         } else {
-             System.out.println("length of both lines are not equal");
-         }
-     }
-
-     public static void main(String[] args) {
-         LineComp obj1=new LineComp();
-         obj1.method1();
-         obj1.Compare();
+    private static LineComp obj1;
+    Scanner scanner = new Scanner(System.in);
+    String LengthOfLine() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the value of co-ordinates x1, y1, x2, y2 :");
+        int x1 = scanner.nextInt(), y1 = scanner.nextInt(), x2 = scanner.nextInt(), y2 = scanner.nextInt();
+        String lengthOfLine = String.valueOf(Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
+        System.out.println("Length of Line (" + x1 + "," + y1 + ") and (" + x2 + "," + y2 + ") is :" + lengthOfLine);
+        System.out.println();
+        return lengthOfLine;
     }
+    // Prints true => equals, and Prints false => distinct
+    void checkEqualityOfTwoLines() {
+        String line1 = LengthOfLine();
+        String line2 = LengthOfLine();
+        System.out.println("---Equals Method---");
+        System.out.println(line1.equals(line2));
+    }
+    void compareTwoLines() {
+        String line1 = LengthOfLine();//S1 equal S2==returns 0
+        String line2 = LengthOfLine();//S1 smaller s2 == positive value return
+        System.out.println("---CompareTo Method---");//
+        System.out.println(line1.compareTo(line2));
+    }
+    public static void main(String[] args) {
+        LineComp.obj1 = new LineComp();
+        obj1.checkEqualityOfTwoLines();
+        obj1.compareTwoLines();
+        obj1.LengthOfLine();
+    }
+
 }
