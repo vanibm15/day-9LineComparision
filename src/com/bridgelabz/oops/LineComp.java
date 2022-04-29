@@ -1,5 +1,7 @@
 package com.bridgelabz.oops;
-
+import java.util.Scanner;
+class A {
+    String lengthOfLine() {
 import java.util.Scanner;
 
 public class LineComp {
@@ -14,7 +16,31 @@ public class LineComp {
         System.out.println();
         return lengthOfLine;
     }
-    // Prints true => equals, and Prints false => distinct
+}
+class B extends A {
+    void checkEqualityOfTwoLines() {
+        String line1 = lengthOfLine();
+        String line2 = lengthOfLine();
+        System.out.println("---Equals Method---");
+        System.out.println(line1.equals(line2));
+    }
+}
+class C extends B {
+    void compareTwoLines() {
+        String line1 = lengthOfLine();
+        String line2 = lengthOfLine();
+        System.out.println("---CompareTo Method---");
+        System.out.println(line1.compareTo(line2));
+    }
+}
+class LineComparison {
+    public static void main(String[] args) {
+        System.out.println("Welcome to Line Comparison Computation Program");
+        C obj1 = new C();
+        obj1.compareTwoLines();
+        obj1.lengthOfLine();
+        obj1.checkEqualityOfTwoLines();
+    }
     void checkEqualityOfTwoLines() {
         String line1 = LengthOfLine();
         String line2 = LengthOfLine();
@@ -33,5 +59,4 @@ public class LineComp {
         obj1.compareTwoLines();
         obj1.LengthOfLine();
     }
-
 }
